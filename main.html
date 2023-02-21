@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/main.css"/>
+    <title>data base</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: cursive;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            outline: none;
+        }
+
+        label {
+            line-height: 1.9rem;
+        }
+
+        input[type="submit"] {
+            transform: translate(2.2%);
+            padding: 3px;
+            margin-top: 0.6rem;
+            font-family: cursive;
+            font-weight: bold;
+        }
+
+        fieldset {
+            padding: 20px 40px;
+        }
+    </style>
+</head>
+<body>
+<form method="get" action="http://127.0.0.1:4000">
+        <div class="form-control">
+            <label for="name">id</label>
+            <input type="name" id="name" placeholder="введите id" required name="name"/>
+        </div>
+        <div class="form-control">
+            <label for="message">информация по пользователю</label>
+            <textarea
+                    id="message"
+                    cols="30"
+                    rows="10"
+                    placeholder="данные по пользователю"
+                    readonly
+            >{{.}}</textarea>
+        </div>
+        <button>найти</button>
+</form>
+</body>
+</html>
+<!--onClick="readValue"-->

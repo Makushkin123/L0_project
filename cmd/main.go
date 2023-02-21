@@ -34,7 +34,7 @@ func readFromStream(sc stan.Conn, db *sqlx.DB, cache *Cache) {
 		jsonParsed, err := gabs.ParseJSON(m.Data) //jsonParsed
 		fmt.Println(string(m.Data))
 		if err != nil {
-			fmt.Println("неверный формат")
+			fmt.Println("erro format")
 		} else {
 			key, _ := jsonParsed.Path("order_uid").Data().(string)
 			cache.Set(key, m.Data)
@@ -43,7 +43,7 @@ func readFromStream(sc stan.Conn, db *sqlx.DB, cache *Cache) {
 	}, stan.DeliverAllAvailable())
 
 	if err != nil {
-		fmt.Println("ошибка получения сообщений из канала")
+		fmt.Println("error receiving messages from the channel")
 	}
 
 }
@@ -56,7 +56,7 @@ func startServer(cache *Cache) {
 		Handler: app.routes(),
 	}
 
-	log.Println("Запуск веб-сервера на http://127.0.0.1:4000")
+	log.Println("error receiving messages from the channel")
 	err := srv.ListenAndServe()
 	fmt.Println(err)
 }

@@ -56,21 +56,19 @@ func startServer(cache *Cache) {
 		Handler: app.routes(),
 	}
 
-	log.Println("error receiving messages from the channel")
+	log.Println("Starting the web server on http://127.0.0.1:4000")
 	err := srv.ListenAndServe()
 	fmt.Println(err)
 }
 
 func main() {
 
-	//var objJson string = `{"order_uid": "jinzhu", "age": 18, "tags": ["tag1", "tag2"], "orgs": {"orga": "orga"}}`
+	
 
 	db := initDB()
-	defer db.Close()
 	cache := New(db)
 	sc := initStream()
 
-	//sc.Publish("foo", []byte(objJson))
 
 	////Close connection
 	defer sc.Close()
